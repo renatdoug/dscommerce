@@ -2,8 +2,7 @@ package com.renatdoug.dscommerce.enitites;
 
 import java.time.Instant;
 
-import org.hibernate.annotations.ManyToAny;
-
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -28,10 +28,12 @@ public class Order {
     @JoinColumn(name = "client_id") // MAPEAMENTO DA CHAVE ESTRANGEIRA - respeitando o nome que está no  banco de dados
     private User client;
 
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
+    private Payment payment;
+
     public Order(){
 
-    }
-    
+    }    
 
     public Order(Long id, Instant moment, OrderStatus status, User client) {
         this.id = id;
@@ -70,6 +72,14 @@ public class Order {
 
     public void setClient(User client) {
         this.client = client;
+    }
+
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
     }
 
 
