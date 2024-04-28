@@ -1,7 +1,7 @@
 package com.desafio2.sistevento.entities;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -24,8 +24,9 @@ public class Categoria {
     @Column(columnDefinition = "TEXT")
     private String descricao;
 
+   
     @OneToMany(mappedBy = "categoria")
-    private Set<Atividade>atividade = new HashSet<>();
+    private List<Atividade> atividades = new ArrayList<>();
 
 
     public Categoria(){}
@@ -56,11 +57,9 @@ public class Categoria {
         this.descricao = descricao;
     }
 
-
-    public Set<Atividade> getAtividade() {
-        return atividade;
+    public List<Atividade> getAtividades() {
+        return atividades;
     }
-
-    
+   
 
 }

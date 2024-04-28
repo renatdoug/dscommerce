@@ -30,8 +30,9 @@ public class Atividade {
     private Double preco;
 
     @ManyToOne
-    @JoinColumn(name = "categoria_id")
+    @JoinColumn(name = "categoria_id") // Indicando que a categoria não pode ser nula
     private Categoria categoria;
+    
 
     @ManyToMany
     @JoinTable(name = "tb_atividade_participante",
