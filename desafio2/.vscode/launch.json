@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SisteventoApplication<sistevento>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.desafio2.sistevento.SisteventoApplication",
+            "projectName": "sistevento",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
