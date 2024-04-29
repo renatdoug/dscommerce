@@ -1,6 +1,8 @@
 package com.renatdoug.dscommerce.services;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +18,8 @@ public class ProductService {
     @Autowired
     private ProductRepository repository;
 
+   
+
     @Transactional(readOnly = true)
     public ProductDTO findById(Long id){
         Optional<Product> result = repository.findById(id);
@@ -24,5 +28,16 @@ public class ProductService {
         return dto;
 
     }
+
+    @Transactional(readOnly = true)
+    public List<ProductDTO> findAll() {
+        List<Product> productList = repository.findAll();
+        List<ProductDTO> dtoList = productList.stream()
+                .map(ProductDTO::new)
+                .collect(Collectors.toList());
+        return dtoList;
+    } 
+
+   
 
 }

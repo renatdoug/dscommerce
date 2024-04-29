@@ -2,6 +2,7 @@ package com.renatdoug.dscommerce.dto;
 
 import com.renatdoug.dscommerce.enitites.Product;
 
+
 public class ProductDTO {
     
     private Long id;

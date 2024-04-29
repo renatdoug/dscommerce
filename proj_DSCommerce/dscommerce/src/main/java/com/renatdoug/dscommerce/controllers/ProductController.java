@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.renatdoug.dscommerce.dto.ProductDTO;
 import com.renatdoug.dscommerce.services.ProductService;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,10 +22,19 @@ public class ProductController {
     @Autowired
     private ProductService service;
 
-    @GetMapping(value = "/{id}") // Anotação essencial para que este recurso rsponda pelo método HTTP GET   
+    @GetMapping(value = "/{id}") // Anotação essencial para que este recurso rsponda pelo método HTTP GET 
+    
     public ProductDTO findById(@PathVariable Long id){
         ProductDTO dto = service.findById(id);
         return dto;
     }
 
+    @GetMapping
+    public List<ProductDTO> findAll(){
+    	return service.findAll();
+    }  
+
+
+
 }
+
