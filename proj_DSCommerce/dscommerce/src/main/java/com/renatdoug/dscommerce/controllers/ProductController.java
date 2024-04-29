@@ -3,13 +3,12 @@ package com.renatdoug.dscommerce.controllers;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.renatdoug.dscommerce.enitites.Product;
-import com.renatdoug.dscommerce.repositories.ProductRepository;
-
-import java.util.Optional;
+import com.renatdoug.dscommerce.dto.ProductDTO;
+import com.renatdoug.dscommerce.services.ProductService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 
 
@@ -19,13 +18,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class ProductController {
 
     @Autowired
-    private ProductRepository repository;
+    private ProductService service;
 
-    @GetMapping // Anotação essencial para que este recurso rsponda pelo método HTTP GET   
-    public String teste(){
-        Optional<Product> result = repository.findById(1L);
-        Product product = result.get();
-        return product.getName();
+    @GetMapping(value = "/{id}") // Anotação essencial para que este recurso rsponda pelo método HTTP GET   
+    public ProductDTO findById(@PathVariable Long id){
+        ProductDTO dto = service.findById(id);
+        return dto;
     }
 
 }
