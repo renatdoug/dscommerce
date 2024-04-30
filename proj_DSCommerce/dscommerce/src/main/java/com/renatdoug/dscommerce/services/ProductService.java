@@ -2,9 +2,11 @@ package com.renatdoug.dscommerce.services;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
+//import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -30,12 +32,9 @@ public class ProductService {
     }
 
     @Transactional(readOnly = true)
-    public List<ProductDTO> findAll() {
-        List<Product> productList = repository.findAll();
-        List<ProductDTO> dtoList = productList.stream()
-                .map(ProductDTO::new)
-                .collect(Collectors.toList());
-        return dtoList;
+    public Page<ProductDTO> findAll(Pageable pageable) {
+        Page<Product> result = repository.findAll(pageable);
+        return result.map(ProductDTO::new);
     } 
 
    
