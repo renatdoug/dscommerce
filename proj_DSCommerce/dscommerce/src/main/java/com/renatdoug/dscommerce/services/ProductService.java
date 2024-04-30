@@ -1,6 +1,6 @@
 package com.renatdoug.dscommerce.services;
 
-import java.util.List;
+
 import java.util.Optional;
 //import java.util.stream.Collectors;
 
@@ -35,8 +35,19 @@ public class ProductService {
     public Page<ProductDTO> findAll(Pageable pageable) {
         Page<Product> result = repository.findAll(pageable);
         return result.map(ProductDTO::new);
-    } 
-
+    }  
+    
+    @Transactional
+    public ProductDTO insert(ProductDTO dto){
+        Product entity = new Product();
+        entity.setName(dto.getName());
+        entity.setPrice(dto.getPrice());
+        entity.setDescription(dto.getDescription());
+        entity.setImgUrl(dto.getImgUrl());
+        
+        entity = repository.save(entity);
+        return new ProductDTO(entity);
+    }  
    
 
 }
