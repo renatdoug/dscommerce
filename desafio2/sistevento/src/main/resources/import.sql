@@ -13,9 +13,9 @@ INSERT INTO tb_atividade(categoria_id, nome, descricao, preco) VALUES (1, 'Curso
 INSERT INTO tb_atividade(categoria_id, nome, descricao, preco) VALUES (2, 'Oficina de Github', 'Controle versoes de seus projetos', 50.00);
 
 --Inserridos dados na tabela Bloco --
-INSERT INTO tb_bloco(inicio, fim) VALUES (TIMESTAMP WITH TIME ZONE '2017-09-25T08:00Z', TIMESTAMP WITH TIME ZONE '2017-09-25T11:00Z');
-INSERT INTO tb_bloco(inicio, fim) VALUES (TIMESTAMP WITH TIME ZONE '2017-09-25T14:00Z', TIMESTAMP WITH TIME ZONE '2017-09-25T18:00Z');
-INSERT INTO tb_bloco(inicio, fim) VALUES (TIMESTAMP WITH TIME ZONE '2017-09-26T08:00Z', TIMESTAMP WITH TIME ZONE '2017-09-26T11:00Z');
+INSERT INTO tb_bloco(atividade_id, inicio, fim) VALUES (1, TIMESTAMP WITH TIME ZONE '2017-09-25T08:00Z', TIMESTAMP WITH TIME ZONE '2017-09-25T11:00Z');
+INSERT INTO tb_bloco(atividade_id, inicio, fim) VALUES (2, TIMESTAMP WITH TIME ZONE '2017-09-25T14:00Z', TIMESTAMP WITH TIME ZONE '2017-09-25T18:00Z');
+INSERT INTO tb_bloco(atividade_id, inicio, fim) VALUES (2, TIMESTAMP WITH TIME ZONE '2017-09-26T08:00Z', TIMESTAMP WITH TIME ZONE '2017-09-26T11:00Z');
 
 --Inserridos dados na tabela atividade_participante --
 INSERT INTO tb_atividade_participante (atividade_id, participante_id) VALUES (1,1);
@@ -26,9 +26,9 @@ INSERT INTO tb_atividade_participante (atividade_id, participante_id) VALUES (2,
 INSERT INTO tb_atividade_participante (atividade_id, participante_id) VALUES (2,4);
 
 --Inserridos dados na tabela atividade_bloco --
-INSERT INTO tb_atividade_bloco (atividade_id, bloco_id) VALUES (1,1);
-INSERT INTO tb_atividade_bloco (atividade_id, bloco_id) VALUES (2,2);
-INSERT INTO tb_atividade_bloco (atividade_id, bloco_id) VALUES (2,3);
+--INSERT INTO tb_atividade_bloco (atividade_id, bloco_id) VALUES (1,1);
+--INSERT INTO tb_atividade_bloco (atividade_id, bloco_id) VALUES (2,2);
+--INSERT INTO tb_atividade_bloco (atividade_id, bloco_id) VALUES (2,3);
 
 
 

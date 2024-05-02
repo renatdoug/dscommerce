@@ -1,6 +1,9 @@
 package com.desafio2.sistevento.entities;
 
+
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import jakarta.persistence.Column;
@@ -12,6 +15,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -40,11 +44,12 @@ public class Atividade {
             inverseJoinColumns = @JoinColumn(name = "participante_id"))
     private Set<Participante> participantes = new HashSet<>();
 
-    @ManyToMany
-    @JoinTable(name = "tb_atividade_bloco",
-            joinColumns = @JoinColumn(name = "atividade_id"),
-            inverseJoinColumns = @JoinColumn(name = "bloco_id"))
-    private Set<Bloco> blocos = new HashSet<>();
+    //@ManyToMany
+    //@JoinTable(name = "tb_atividade_bloco",
+    //        joinColumns = @JoinColumn(name = "atividade_id"),
+    //        inverseJoinColumns = @JoinColumn(name = "bloco_id"))
+     @OneToMany(mappedBy = "atividade")
+    private List<Bloco> blocos = new ArrayList<>();
 
     public  Atividade() {}
     public Atividade(String nome, String descricao, Double preco){

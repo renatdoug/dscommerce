@@ -1,14 +1,14 @@
 package com.desafio2.sistevento.entities;
 
 import java.time.Instant;
-import java.util.HashSet;
-import java.util.Set;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.JoinColumn;
+
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -23,8 +23,12 @@ public class Bloco {
 
     private Instant fim;
 
-    @ManyToMany(mappedBy = "blocos")
-    private Set<Atividade> atividades = new HashSet<>();
+    //@ManyToMany(mappedBy = "blocos")
+    //private Set<Atividade> atividades = new HashSet<>();
+
+      @ManyToOne
+    @JoinColumn(name = "atividade_id") // Indicando que a categoria não pode ser nula
+    private Atividade atividade;
 
 
     public Bloco(){}
