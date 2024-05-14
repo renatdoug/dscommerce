@@ -16,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
@@ -48,6 +49,13 @@ public class ProductController {
                   .buildAndExpand(dto.getId()).toUri();
         return ResponseEntity.created(uri).body(dto);        
     }  
+
+    @PutMapping(value = "/{id}") // Anotação essencial para que este recurso rsponda pelo método HTTP GET 
+    
+    public ResponseEntity<ProductDTO> update(@PathVariable Long id, @RequestBody ProductDTO dto){
+        dto = service.update(id, dto);
+        return ResponseEntity.ok(dto);
+    }
 
 }
 
