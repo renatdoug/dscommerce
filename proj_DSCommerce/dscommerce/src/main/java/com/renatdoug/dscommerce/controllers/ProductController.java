@@ -30,8 +30,7 @@ public class ProductController {
     @Autowired
     private ProductService service;
 
-    @GetMapping(value = "/{id}") // Anotação essencial para que este recurso rsponda pelo método HTTP GET 
-    
+    @GetMapping(value = "/{id}") // Anotação essencial para que este recurso rsponda pelo método HTTP GET     
     public ResponseEntity<ProductDTO> findById(@PathVariable Long id){
         ProductDTO dto = service.findById(id);
         return ResponseEntity.ok(dto);
