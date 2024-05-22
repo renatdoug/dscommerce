@@ -6,7 +6,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.2.5</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.renatdoug</groupId>
 	<artifactId>dscommerce</artifactId>
@@ -36,7 +36,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	
+
 		<dependency>
 			<groupId>org.scala-lang</groupId>
 			<artifactId>scala-library</artifactId>
@@ -48,8 +48,22 @@
 			<artifactId>modelmapper</artifactId>
 			<version>3.2.0</version>
 		</dependency>
-		
- 	</dependencies>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-validation -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+			<version>3.2.4</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>8.0.0.CR3</version>
+		</dependency>
+
+	</dependencies>
 
 	<build>
 		<plugins>
