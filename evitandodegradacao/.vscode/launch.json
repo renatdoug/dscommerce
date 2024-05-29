@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-AulaLazyApplication<aulalazy>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.devsuperior.aulalazy.AulaLazyApplication",
+            "projectName": "aulalazy",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
