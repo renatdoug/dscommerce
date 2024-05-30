@@ -14,7 +14,7 @@ public class ProductDTO {
 
     private List<CategoryDTO> categories = new ArrayList<>();
 
-    public ProductDTO(Long id, String name, Double price) {
+    public ProductDTO(Long id, String name, Double price) { // nunca associar classe DTO com outra entidade que nao seja DTO
         this.id = id;
         this.name = name;
         this.price = price;
